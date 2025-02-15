@@ -16,9 +16,7 @@ public class SinglyLinkedListTest {
         Sll.insert('A');
         Sll.insert('B');
         Sll.insert('C');
-        assert(Sll.head.next.data == 'A');
-        assert(Sll.head.next.next.data == 'B');
-        assert(Sll.head.next.next.next.data != 'D');
+        assertEquals("ABC", Sll.toString());
 
     }
 
@@ -41,7 +39,7 @@ public class SinglyLinkedListTest {
         Sll.remove('D');
 
         assertTrue(Sll.isEmpty());
-        // assertThrows(Exception.class,() ->{Dll.remove('V');} );
+    
     }
 
     @Test
