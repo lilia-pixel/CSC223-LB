@@ -17,7 +17,7 @@ public class DoublyLinkedListTest {
         Dll.insert('B');
         Dll.insert('C');
         assertEquals("ABC", Dll.toString());
-
+ 
     }
 
     @Test
@@ -186,6 +186,5 @@ public class DoublyLinkedListTest {
         Dll.insert('E');
         Dll.reverse();
         assertEquals("EDCBA", Dll.toString());
-        
     }
 }

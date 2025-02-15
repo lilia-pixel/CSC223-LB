@@ -11,7 +11,7 @@ public class SortedLinkedList extends DoublyLinkedList{
         this.size = 0;
 
     }
-    
+
      // Insert an item 
     public void insert(char item){
         if(item >= this.tail.prev.data){
@@ -39,6 +39,5 @@ public class SortedLinkedList extends DoublyLinkedList{
          }
 
     }
-
 
 }

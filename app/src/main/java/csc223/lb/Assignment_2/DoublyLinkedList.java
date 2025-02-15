@@ -159,20 +159,6 @@ public class DoublyLinkedList extends SinglyLinkedList{
         }
         return s;
     }
-
-    public static void main(String[] arg){
-        DoublyLinkedList Dll = new DoublyLinkedList();
-        Dll.insert('A');
-        Dll.insert('B');
-        Dll.insert('C');
-        Dll.insert('D');
-        Dll.insert('E');
-
-        System.out.println(Dll.toString());
-
-        Dll.reverse();
-
-        System.out.print(Dll.toString());
         
-    }
 }
+
