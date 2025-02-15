@@ -11,8 +11,8 @@ public class DoublyLinkedList extends SinglyLinkedList{
         this.tail.prev = this.head;
         this.size = 0;
 
-
     }
+
      // Insert an item at the end of the list for unsorted lists
     public void insert(char item){
         Node newNode = new Node(null, item, null);
@@ -25,10 +25,7 @@ public class DoublyLinkedList extends SinglyLinkedList{
     }
 
      // Removes an item from the list
-    public void remove(char item){ //throws Exception
-        // if (isEmpty()){
-        //     throw new Exception("There is no item to remove");
-        // }
+    public void remove(char item){ 
         Node curr = this.head.next;
         while (curr != this.tail){
             if (curr.data == item){
@@ -39,7 +36,6 @@ public class DoublyLinkedList extends SinglyLinkedList{
             }
                 curr=curr.next;
         }
-        // throw new Exception("This element is not in the list");
 
         }
 
