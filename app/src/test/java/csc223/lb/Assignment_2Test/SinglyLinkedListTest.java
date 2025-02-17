@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import csc223.lb.Assignment_2.SinglyLinkedList;
 
 public class SinglyLinkedListTest {
-    
     @Test
     public void testInsert(){
         SinglyLinkedList Sll = new SinglyLinkedList();
@@ -39,7 +38,7 @@ public class SinglyLinkedListTest {
         Sll.remove('D');
 
         assertTrue(Sll.isEmpty());
-    
+
     }
 
     @Test
@@ -102,7 +101,7 @@ public class SinglyLinkedListTest {
         Sll.insert('C');
         Sll.insert('D');
         Sll.insert('E');
-        
+
         assertEquals(5, Sll.size());
     }
 
@@ -190,6 +189,48 @@ public class SinglyLinkedListTest {
         assertEquals("ABCDE", Sll.toString());
         Sll.reverse();
         assertEquals("EDCBA", Sll.toString());
+
+    }
+
+    @Test
+    public void testGetOutOfBounds() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.insert('A');
         
+        assertEquals('☠', list.get(-1));  
+        assertEquals('☠', list.get(5));
+    }
+
+    @Test
+    public void testGetLastOnEmptyList() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        assertEquals('☠', list.getLast());  
+    }
+
+    @Test
+    public void testRemoveNonExistent() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.insert('A');
+        list.insert('B');
+        
+        list.remove('Z');  // Should do nothing, but could fail
+        assertEquals("AB", list.toString());  
+    }
+
+    @Test
+    public void testReverseSingleElement() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.insert('A');
+        list.reverse();
+
+        assertEquals("A", list.toString()); 
+    }
+
+    @Test
+    public void testIndexMethodsEmptyList() {
+        SinglyLinkedList list = new SinglyLinkedList();
+        
+        assertEquals(-1, list.indexOf('A'));  
+        assertEquals(-1, list.lastIndexOf('A'));
     }
 }
