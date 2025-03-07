@@ -6,6 +6,7 @@ public class BinaryTreeSearch {
     public BinaryTreeSearch(){
 
     }
+    // inserts a node in the Binary search tree
     public void insert(int value) {
         root = insert(value, root); 
     }
@@ -57,6 +58,7 @@ public class BinaryTreeSearch {
         return curr;
     }
     
+    // print an a string of in order traversal 
     public String inOrder() {
         return inOrder(root).trim(); 
     }
@@ -70,6 +72,7 @@ public class BinaryTreeSearch {
         return leftStr +node.data + " " + rightStr;
     }
 
+    // converts a sorted array into a Binary search tree
     public int sortedArrayToBST(int[] values) {
         root = null;
         sortedArrayToBST(values, 0, values.length -1);
@@ -89,7 +92,7 @@ public class BinaryTreeSearch {
     }
 
    
-
+    // tells us if a node is in the tree or not
     public boolean search(int value) {
         return search(value, root);
     }
@@ -109,8 +112,8 @@ public class BinaryTreeSearch {
             }return false;
         
     }
-     // not done yet
 
+    // updates the element of a node in a tree
     public void update(int oldValue, int newValue) {
         update(oldValue, newValue, root);
     }
@@ -134,6 +137,7 @@ public class BinaryTreeSearch {
     }
 
 
+    // finds the lowest common root of two elements
     public int lowestCommonAncestor(int p, int q) {
         return lowestCommonAncestor(p, q, root);
 
