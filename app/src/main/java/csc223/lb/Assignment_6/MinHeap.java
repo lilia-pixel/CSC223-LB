@@ -26,14 +26,19 @@ public class MinHeap {
             this.heapArray = temp;
         }
         this.heapArray[this.end] = value;
-        for (int i = 1; i<this.end+1; i++){
-            if (this.heapArray[i] < this.heapArray[(i-1)/2]){
-                int temp = this.heapArray[i];
-                this.heapArray[i] = this.heapArray[(i-1)/2];
-                this.heapArray[(i-1)/2] = temp;
-                this.size += 1;
-                this.end += 1;
-            }
+        this.end += 1;
+        this.size += 1;
+        bubbleup(this.end);
+    }
+
+    private void bubbleup(int index){
+        if (this.heapArray[index] < this.heapArray[(index-1)/2]){
+            int temp = this.heapArray[index];
+            this.heapArray[index] = this.heapArray[(index-1)/2];
+            this.heapArray[(index-1)/2] = temp;
+        }
+        if (index-1 >= 1){
+            bubbleup(index-1);
         }
     }
 
@@ -41,22 +46,27 @@ public class MinHeap {
         if (isEmpty())
             return;
         this.heapArray[this.root] = this.heapArray[this.end];
-        for (int i = 0; i<this.end+1; i++){
-            if ((2*i+1) > this.size){
-                this.end -= 1;
-                return;
-            }
-            else if (this.heapArray[i] > this.heapArray[2*i+1]){
-                int temp = this.heapArray[i];
-                this.heapArray[i] = this.heapArray[2*i+1];
-                this.heapArray[2*i+1] = temp;
-            }
-            else if (this.heapArray[i] > this.heapArray[2*i+2]){
-                int temp = this.heapArray[i];
-                this.heapArray[i] = this.heapArray[2*i+2];
-                this.heapArray[2*i+2] = temp;
-            }
+        delete(0);
+    }
+
+    private int delete(int index){
+        if ((2*index+1) > this.size){
+            this.end -= 1;
+            return -1;
         }
+        else if (this.heapArray[index] > this.heapArray[2*index+1]){
+            int temp = this.heapArray[index];
+            this.heapArray[index] = this.heapArray[2*index+1];
+            this.heapArray[2*index+1] = temp;
+            delete(2*index+1);
+        }
+        else if (this.heapArray[index] > this.heapArray[2*index+2]){
+            int temp = this.heapArray[index];
+            this.heapArray[index] = this.heapArray[2*index+2];
+            this.heapArray[2*index+2] = temp;
+            delete(2*index+2);
+        }
+        return -1;
     }
 
     public int peek(){
