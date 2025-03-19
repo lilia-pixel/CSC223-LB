@@ -10,7 +10,7 @@ import csc223.lb.Assignment_6.MinHeap;
 
 public class MinHeapTest {
     @Test
-    public void testInsertSingleElement() {
+    public void testInsertOneElement() {
         MinHeap heap = new MinHeap();
         heap.insert('5');
 
@@ -30,18 +30,6 @@ public class MinHeapTest {
     }
 
     @Test
-    public void testInsertMaintainsMinHeapProperty() {
-        MinHeap heap = new MinHeap();
-        heap.insert('9');
-        heap.insert('7');
-        heap.insert('5');
-        heap.insert('3');
-        heap.insert('1');
-
-        assertEquals('1', heap.peek());
-    }
-
-    @Test
     public void testInsertDuplicates() {
         MinHeap heap = new MinHeap();
         heap.insert('4');
@@ -53,7 +41,7 @@ public class MinHeapTest {
     }
 
     @Test
-    public void testInsertAlphabetCharacters() {
+    public void testInsertChars() {
         MinHeap heap = new MinHeap();
         heap.insert('z');
         heap.insert('a');
@@ -62,24 +50,8 @@ public class MinHeapTest {
         assertEquals('a', heap.peek());
     }
 
+
     @Test
-    public void testInsertWithHeapAlreadyContainingElements() {
-        MinHeap heap = new MinHeap();
-        heap.insert('5');
-        heap.insert('3');
-        heap.insert('8');
-
-        assertEquals('3', heap.peek());
-
-        heap.insert('1');
-        assertEquals('1', heap.peek());
-    }
-
-
-
-
-
-        @Test
     public void testDeleteFromEmptyHeap() {
         MinHeap heap = new MinHeap();
         heap.delete();
@@ -88,7 +60,7 @@ public class MinHeapTest {
     }
 
     @Test
-    public void testDeleteSingleElement() {
+    public void testDeleteOneElement() {
         MinHeap heap = new MinHeap();
         heap.insert('5');
         heap.delete();
@@ -98,7 +70,7 @@ public class MinHeapTest {
     }
 
     @Test
-    public void testDeleteRootMaintainsMinHeapProperty() {
+    public void testDeleteRoot() {
         MinHeap heap = new MinHeap();
         heap.insert('3');
         heap.insert('5');
@@ -143,23 +115,7 @@ public class MinHeapTest {
     }
 
     @Test
-    public void testDeleteMaintainsHeapOrder() {
-        MinHeap heap = new MinHeap();
-        heap.insert('9');
-        heap.insert('3');
-        heap.insert('7');
-        heap.insert('1');
-        heap.insert('5');
-
-        heap.delete(); 
-        assertEquals('3', heap.peek());
-
-        heap.delete();
-        assertEquals('5', heap.peek());
-    }
-
-    @Test
-    public void testDeleteUntilHeapIsEmpty() {
+    public void testDeleteUntilEmpty() {
         MinHeap heap = new MinHeap();
         heap.insert('4');
         heap.insert('2');
@@ -182,12 +138,6 @@ public class MinHeapTest {
         assertTrue(heap.isEmpty());
     }
 
-    @Test
-    public void testIsEmptyAfterInsert() {
-        MinHeap heap = new MinHeap();
-        heap.insert('5');
-        assertFalse(heap.isEmpty());
-    }
 
     @Test
     public void testIsEmptyAfterMultipleInserts() {

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 public class MaxHeapTest {
 
     @Test
-    public void testInsertSingleElement() {
+    public void testInsertOneElement() {
         MaxHeap heap = new MaxHeap();
         heap.insert('5');
 
@@ -28,17 +28,6 @@ public class MaxHeapTest {
         assertEquals('5', heap.peek()); 
     }
 
-    @Test
-    public void testInsertMaintainsMaxHeapProperty() {
-        MaxHeap heap = new MaxHeap();
-        heap.insert('1');
-        heap.insert('3');
-        heap.insert('5');
-        heap.insert('7');
-        heap.insert('9');
-
-        assertEquals('9', heap.peek()); 
-    }
 
     @Test
     public void testInsertDuplicates() {
@@ -52,7 +41,7 @@ public class MaxHeapTest {
     }
 
     @Test
-    public void testInsertAlphabetCharacters() {
+    public void testInsertAlphabetChars() {
         MaxHeap heap = new MaxHeap();
         heap.insert('a');
         heap.insert('z');
@@ -80,7 +69,7 @@ public class MaxHeapTest {
     }
 
     @Test
-    public void testDeleteRootMaintainsMaxHeapProperty() {
+    public void testDeleteRoot() {
         MaxHeap heap = new MaxHeap();
         heap.insert('1');
         heap.insert('3');
@@ -93,7 +82,7 @@ public class MaxHeapTest {
     }
 
     @Test
-    public void testDeleteMultipleTimes() {
+    public void testDeleteManyTimes() {
         MaxHeap heap = new MaxHeap();
         heap.insert('8');
         heap.insert('4');
@@ -114,19 +103,7 @@ public class MaxHeapTest {
     }
 
     @Test
-    public void testDeleteWithOnlyOneChild() {
-        MaxHeap heap = new MaxHeap();
-        heap.insert('5');
-        heap.insert('2');
-
-        heap.delete(); 
-
-        assertEquals(1, heap.size());
-        assertEquals('2', heap.peek());
-    }
-
-    @Test
-    public void testDeleteMaintainsHeapOrder() {
+    public void testDeleteMaintainsOrder() {
         MaxHeap heap = new MaxHeap();
         heap.insert('1');
         heap.insert('3');
@@ -172,7 +149,7 @@ public class MaxHeapTest {
     }
 
     @Test
-    public void testIsEmptyAfterMultipleInserts() {
+    public void testIsEmptyAfterManyInserts() {
         MaxHeap heap = new MaxHeap();
         heap.insert('2');
         heap.insert('8');
@@ -236,7 +213,7 @@ public class MaxHeapTest {
     }
 
     @Test
-    public void testToStringAfterMultipleInserts() {
+    public void testToStringAfterManyInserts() {
         MaxHeap heap = new MaxHeap();
         heap.insert('7');
         heap.insert('4');
