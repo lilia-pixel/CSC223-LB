@@ -12,42 +12,32 @@ public class MinHeapTest {
     @Test
     public void testInsertOneElement() {
         MinHeap heap = new MinHeap();
-        heap.insert('5');
+        heap.insert('a');
 
         assertEquals(1, heap.size());
-        assertEquals('5', heap.peek());
+        assertEquals('a', heap.peek());
     }
 
     @Test
     public void testInsertMultipleElements() {
         MinHeap heap = new MinHeap();
-        heap.insert('3');
-        heap.insert('5');
-        heap.insert('1');
+        heap.insert('c');
+        heap.insert('h');
+        heap.insert('a');
 
         assertEquals(3, heap.size());
-        assertEquals('1', heap.peek()); 
+        assertEquals('a', heap.peek()); 
     }
 
     @Test
     public void testInsertDuplicates() {
         MinHeap heap = new MinHeap();
-        heap.insert('4');
-        heap.insert('4');
-        heap.insert('4');
+        heap.insert('h');
+        heap.insert('h');
+        heap.insert('h');
 
         assertEquals(3, heap.size());
-        assertEquals('4', heap.peek());
-    }
-
-    @Test
-    public void testInsertChars() {
-        MinHeap heap = new MinHeap();
-        heap.insert('z');
-        heap.insert('a');
-        heap.insert('m');
-
-        assertEquals('a', heap.peek());
+        assertEquals('h', heap.peek());
     }
 
 
@@ -62,7 +52,7 @@ public class MinHeapTest {
     @Test
     public void testDeleteOneElement() {
         MinHeap heap = new MinHeap();
-        heap.insert('5');
+        heap.insert('a');
         heap.delete();
 
         assertEquals(0, heap.size());
@@ -72,31 +62,31 @@ public class MinHeapTest {
     @Test
     public void testDeleteRoot() {
         MinHeap heap = new MinHeap();
-        heap.insert('3');
-        heap.insert('5');
-        heap.insert('1'); 
+        heap.insert('z');
+        heap.insert('r');
+        heap.insert('a'); 
         heap.delete(); 
 
         assertEquals(2, heap.size());
-        assertEquals('3', heap.peek());
+        assertEquals('a', heap.peek());
     }
 
     @Test
     public void testDeleteMultipleTimes() {
         MinHeap heap = new MinHeap();
-        heap.insert('4');
-        heap.insert('2');
-        heap.insert('8');
-        heap.insert('1');
+        heap.insert('c');
+        heap.insert('b');
+        heap.insert('d');
+        heap.insert('a');
 
         heap.delete(); 
-        assertEquals('2', heap.peek());
+        assertEquals('b', heap.peek());
 
         heap.delete();
-        assertEquals('4', heap.peek());
+        assertEquals('c', heap.peek());
 
         heap.delete(); 
-        assertEquals('8', heap.peek());
+        assertEquals('d', heap.peek());
 
         heap.delete(); 
         assertTrue(heap.isEmpty());
@@ -105,13 +95,13 @@ public class MinHeapTest {
     @Test
     public void testDeleteWithOnlyOneChild() {
         MinHeap heap = new MinHeap();
-        heap.insert('2');
-        heap.insert('5');
+        heap.insert('a');
+        heap.insert('b');
 
         heap.delete(); 
 
         assertEquals(1, heap.size());
-        assertEquals('5', heap.peek());
+        assertEquals('b', heap.peek());
     }
 
     @Test
@@ -150,8 +140,8 @@ public class MinHeapTest {
     @Test
     public void testIsEmptyAfterDelete() {
         MinHeap heap = new MinHeap();
-        heap.insert('4');
-        heap.insert('2');
+        heap.insert('c');
+        heap.insert('a');
 
         heap.delete(); 
         assertFalse(heap.isEmpty());
@@ -163,8 +153,8 @@ public class MinHeapTest {
     @Test
     public void testIsEmptyAfterClear() {
         MinHeap heap = new MinHeap();
-        heap.insert('3');
-        heap.insert('7');
+        heap.insert('a');
+        heap.insert('b');
 
         heap.clear();
         assertTrue(heap.isEmpty());
@@ -181,9 +171,9 @@ public class MinHeapTest {
     @Test
     public void testClearAfterInsertions() {
         MinHeap heap = new MinHeap();
-        heap.insert('5');
-        heap.insert('3');
-        heap.insert('8');
+        heap.insert('c');
+        heap.insert('a');
+        heap.insert('d');
 
         heap.clear(); 
         assertTrue(heap.isEmpty());
@@ -201,36 +191,36 @@ public class MinHeapTest {
     @Test
     public void testToStringAfterSingleInsert() {
         MinHeap heap = new MinHeap();
-        heap.insert('5');
-        assertEquals("{5}", heap.toString());
+        heap.insert('a');
+        assertEquals("{a}", heap.toString());
     }
 
     @Test
     public void testToStringAfterMultipleInserts() {
         MinHeap heap = new MinHeap();
-        heap.insert('4');
-        heap.insert('2');
-        heap.insert('7');
+        heap.insert('c');
+        heap.insert('a');
+        heap.insert('d');
 
-        assertEquals("{2,4,7}", heap.toString()); 
+        assertEquals("{a,c,d}", heap.toString()); 
     }
 
     @Test
     public void testToStringAfterDelete() {
         MinHeap heap = new MinHeap();
-        heap.insert('6');
-        heap.insert('1');
-        heap.insert('9');
+        heap.insert('a');
+        heap.insert('z');
+        heap.insert('x');
 
         heap.delete(); 
-        assertEquals("{6,9}", heap.toString());
+        assertEquals("{x,z}", heap.toString());
     }
 
     @Test
     public void testToStringAfterClear() {
         MinHeap heap = new MinHeap();
-        heap.insert('3');
-        heap.insert('7');
+        heap.insert('a');
+        heap.insert('b');
 
         heap.clear();
         assertEquals("{}", heap.toString());
