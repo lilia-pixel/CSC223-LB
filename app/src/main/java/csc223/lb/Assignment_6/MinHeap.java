@@ -4,13 +4,11 @@ public class MinHeap {
     
     int[] heapArray;
     int size;
-    int root;
     int end;
     int capacity;
 
     public MinHeap(){
-        this.root = 0;
-        this.end = 0;
+        this.end = -1;
         this.size = 0;
         this.capacity = 10;
         this.heapArray = new int[this.capacity];
@@ -25,9 +23,9 @@ public class MinHeap {
                 temp[j] = this.heapArray[j];
             this.heapArray = temp;
         }
-        this.heapArray[this.end] = value;
         this.end += 1;
         this.size += 1;
+        this.heapArray[this.end] = value;
         bubbleup(this.end);
     }
 
@@ -45,22 +43,23 @@ public class MinHeap {
     public void delete(){
         if (isEmpty())
             return;
-        this.heapArray[this.root] = this.heapArray[this.end];
+        this.heapArray[0] = this.heapArray[this.end];
         delete(0);
+        this.end -= 1;
+        this.size -= 1;
     }
 
     private int delete(int index){
         if ((2*index+1) > this.size){
-            this.end -= 1;
             return -1;
         }
-        else if (this.heapArray[index] > this.heapArray[2*index+1]){
+        else if ((this.heapArray[index] > this.heapArray[2*index+1]) & ((2*index+1) < this.size)){
             int temp = this.heapArray[index];
             this.heapArray[index] = this.heapArray[2*index+1];
             this.heapArray[2*index+1] = temp;
             delete(2*index+1);
         }
-        else if (this.heapArray[index] > this.heapArray[2*index+2]){
+        else if ((this.heapArray[index] > this.heapArray[2*index+2]) & ((2*index+2) < this.size)){
             int temp = this.heapArray[index];
             this.heapArray[index] = this.heapArray[2*index+2];
             this.heapArray[2*index+2] = temp;
@@ -70,7 +69,7 @@ public class MinHeap {
     }
 
     public int peek(){
-        return this.heapArray[this.root];
+        return this.heapArray[0];
     }
 
     public int size(){
@@ -78,18 +77,23 @@ public class MinHeap {
     }
 
     public Boolean isEmpty(){
-        return (this.root==this.end);
+        return (this.end == -1);
     }
 
     public void clear(){
         this.heapArray = new int[10];
         this.capacity = 10;
+        this.size = 0;
+        this.end = -1;
     }
     
     public String toString(){
         String heapString = "{";
-        for (int i = 0; i<this.size; i++){
-            heapString = heapString + this.heapArray[i] + ",";
+        if (!(isEmpty())){
+            for (int i = 0; i<this.size-1; i++){
+                heapString = heapString + (char)this.heapArray[i] + ",";
+            }
+            heapString = heapString + (char)this.heapArray[this.end];
         }
         heapString = heapString + "}";
         return heapString;
