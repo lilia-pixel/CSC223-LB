@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 import org.junit.jupiter.api.Test;
+import csc223.lb.Assignment_6.MaxHeap;
+
 
 public class MaxHeapTest {
 
@@ -179,25 +181,25 @@ public class MaxHeapTest {
         heap.insert('w');
         heap.insert('e');
 
-        assertEquals("{w,s,f}", heap.toString()); 
+        assertEquals("{w,s,e}", heap.toString()); 
     }
 
     @Test
     public void testToStringAfterDelete() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('9');
-        heap.insert('6');
-        heap.insert('1');
+        heap.insert('t');
+        heap.insert('o');
+        heap.insert('g');
 
         heap.delete(); 
-        assertEquals("{6,1}", heap.toString());
+        assertEquals("{o,g}", heap.toString());
     }
 
     @Test
     public void testToStringAfterClear() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('3');
-        heap.insert('7');
+        heap.insert('a');
+        heap.insert('j');
 
         heap.clear();
         assertEquals("{}", heap.toString());
