@@ -68,7 +68,7 @@ public class MinHeapTest {
         heap.delete(); 
 
         assertEquals(2, heap.size());
-        assertEquals('a', heap.peek());
+        assertEquals('r', heap.peek());
     }
 
     @Test
