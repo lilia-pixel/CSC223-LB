@@ -1,4 +1,4 @@
-package csc223.lb;
+package csc223.lb.Assignment_1;
 
 public interface Queue {
     int[] enqueue(int item);

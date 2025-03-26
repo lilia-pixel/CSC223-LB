@@ -1,5 +1,5 @@
 
-package csc223.lb;
+package csc223.lb.Assignment_1;
 
 public interface Game {
     

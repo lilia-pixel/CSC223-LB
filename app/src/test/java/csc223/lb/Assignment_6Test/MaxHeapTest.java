@@ -3,7 +3,7 @@ package csc223.lb.Assignment_6Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import csc223.lb.Assignment_6.MaxHeap;
 import org.junit.jupiter.api.Test;
 
 public class MaxHeapTest {
@@ -197,6 +197,7 @@ public class MaxHeapTest {
         heap.clear(); 
         assertTrue(heap.isEmpty());
         assertEquals(0, heap.size());
+        assertEquals("{}", heap.toString());
     }
 
     @Test

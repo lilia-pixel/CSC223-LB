@@ -1,9 +1,9 @@
 package csc223.lb.Assignment_2;
 
 public class SinglyLinkedList implements LinkedList{
-    public Node head;
-    public Node tail;
-    public int size;
+    protected Node head;
+    protected Node tail;
+    protected int size;
 
 
     public SinglyLinkedList(){

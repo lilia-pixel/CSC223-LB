@@ -1,6 +1,6 @@
 package csc223.lb.Assignment_2;
 
-public interface LinkedList{
+public interface LinkedList{ 
 
     // Insert an item at the end of the list for unsorted lists
     void insert(char item);
