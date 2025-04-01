@@ -3,51 +3,43 @@ package csc223.lb.Assignment_6Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import csc223.lb.Assignment_6.MaxHeap;
 import org.junit.jupiter.api.Test;
+import csc223.lb.Assignment_6.MaxHeap;
+
 
 public class MaxHeapTest {
+
 
     @Test
     public void testInsertOneElement() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('5');
+        heap.insert('a');
 
         assertEquals(1, heap.size());
-        assertEquals('5', heap.peek());
+        assertEquals('a', heap.peek());
     }
 
     @Test
     public void testInsertMultipleElements() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('3');
-        heap.insert('5');
-        heap.insert('1');
+        heap.insert('c');
+        heap.insert('g');
+        heap.insert('b');
 
         assertEquals(3, heap.size());
-        assertEquals('5', heap.peek()); 
+        assertEquals('g', heap.peek()); 
     }
 
 
     @Test
     public void testInsertDuplicates() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('4');
-        heap.insert('4');
-        heap.insert('4');
+        heap.insert('k');
+        heap.insert('k');
+        heap.insert('k');
 
         assertEquals(3, heap.size());
-        assertEquals('4', heap.peek());
-    }
-
-    @Test
-    public void testInsertAlphabetChars() {
-        MaxHeap heap = new MaxHeap();
-        heap.insert('a');
-        heap.insert('z');
-        heap.insert('m');
-
-        assertEquals('z', heap.peek()); 
+        assertEquals('k', heap.peek());
     }
 
     @Test
@@ -61,7 +53,7 @@ public class MaxHeapTest {
     @Test
     public void testDeleteSingleElement() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('5');
+        heap.insert('f');
         heap.delete();
 
         assertEquals(0, heap.size());
@@ -71,68 +63,35 @@ public class MaxHeapTest {
     @Test
     public void testDeleteRoot() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('1');
-        heap.insert('3');
-        heap.insert('5'); 
+        heap.insert('e');
+        heap.insert('f');
+        heap.insert('g'); 
 
         heap.delete(); 
 
         assertEquals(2, heap.size());
-        assertEquals('3', heap.peek());
+        assertEquals('f', heap.peek());
     }
 
     @Test
     public void testDeleteManyTimes() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('8');
-        heap.insert('4');
-        heap.insert('2');
-        heap.insert('1');
+        heap.insert('y');
+        heap.insert('z');
+        heap.insert('t');
+        heap.insert('m');
 
         heap.delete(); 
-        assertEquals('4', heap.peek());
+        assertEquals('y', heap.peek());
 
         heap.delete(); 
-        assertEquals('2', heap.peek());
+        assertEquals('t', heap.peek());
 
         heap.delete();
-        assertEquals('1', heap.peek());
+        assertEquals('m', heap.peek());
 
         heap.delete(); 
         assertTrue(heap.isEmpty());
-    }
-
-    @Test
-    public void testDeleteMaintainsOrder() {
-        MaxHeap heap = new MaxHeap();
-        heap.insert('1');
-        heap.insert('3');
-        heap.insert('5');
-        heap.insert('7');
-        heap.insert('9');
-
-        heap.delete(); 
-        assertEquals('7', heap.peek());
-
-        heap.delete(); 
-        assertEquals('5', heap.peek());
-    }
-
-    @Test
-    public void testDeleteUntilHeapIsEmpty() {
-        MaxHeap heap = new MaxHeap();
-        heap.insert('8');
-        heap.insert('4');
-        heap.insert('2');
-        heap.insert('1');
-
-        heap.delete();
-        heap.delete(); 
-        heap.delete(); 
-        heap.delete(); 
-
-        assertTrue(heap.isEmpty());
-        assertEquals(0, heap.size());
     }
 
     @Test
@@ -144,23 +103,23 @@ public class MaxHeapTest {
     @Test
     public void testIsEmptyAfterInsert() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('5');
+        heap.insert('a');
         assertFalse(heap.isEmpty());
     }
 
     @Test
     public void testIsEmptyAfterManyInserts() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('2');
-        heap.insert('8');
+        heap.insert('r');
+        heap.insert('f');
         assertFalse(heap.isEmpty());
     }
 
     @Test
     public void testIsEmptyAfterDelete() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('4');
-        heap.insert('2');
+        heap.insert('s');
+        heap.insert('x');
 
         heap.delete(); 
         assertFalse(heap.isEmpty());
@@ -172,8 +131,8 @@ public class MaxHeapTest {
     @Test
     public void testIsEmptyAfterClear() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('3');
-        heap.insert('7');
+        heap.insert('l');
+        heap.insert('i');
 
         heap.clear();
         assertTrue(heap.isEmpty());
@@ -190,9 +149,9 @@ public class MaxHeapTest {
     @Test
     public void testClearAfterInsertions() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('5');
-        heap.insert('3');
-        heap.insert('8');
+        heap.insert('u');
+        heap.insert('i');
+        heap.insert('x');
 
         heap.clear(); 
         assertTrue(heap.isEmpty());
@@ -209,36 +168,36 @@ public class MaxHeapTest {
     @Test
     public void testToStringAfterSingleInsert() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('5');
-        assertEquals("{5}", heap.toString());
+        heap.insert('e');
+        assertEquals("{e}", heap.toString());
     }
 
     @Test
     public void testToStringAfterManyInserts() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('7');
-        heap.insert('4');
-        heap.insert('2');
+        heap.insert('s');
+        heap.insert('w');
+        heap.insert('e');
 
-        assertEquals("{7,4,2}", heap.toString()); 
+        assertEquals("{w,s,e}", heap.toString()); 
     }
 
     @Test
     public void testToStringAfterDelete() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('9');
-        heap.insert('6');
-        heap.insert('1');
+        heap.insert('t');
+        heap.insert('o');
+        heap.insert('g');
 
         heap.delete(); 
-        assertEquals("{6,1}", heap.toString());
+        assertEquals("{o,g}", heap.toString());
     }
 
     @Test
     public void testToStringAfterClear() {
         MaxHeap heap = new MaxHeap();
-        heap.insert('3');
-        heap.insert('7');
+        heap.insert('a');
+        heap.insert('j');
 
         heap.clear();
         assertEquals("{}", heap.toString());
