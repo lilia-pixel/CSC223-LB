@@ -9,7 +9,7 @@ public interface WeightedGraphInterface extends Graph {
      * @param v2 the second vertex
      * @param weight the weight of the edge
      */
-    void addEdge(int v1, int v2, int weight);
+    void addEdge(int v1, int v2, double weight);
 
     /**
      * Gets the weight of the edge between two vertices.
@@ -18,7 +18,7 @@ public interface WeightedGraphInterface extends Graph {
      * @param v2 the second vertex
      * @return the weight of the edge, or -1 if no edge exists
      */
-    int getEdgeWeight(int v1, int v2);
+    double getEdgeWeight(int v1, int v2);
 
     /**
      * Finds the shortest path between two vertices. Returns both the path and

@@ -4,15 +4,15 @@ import java.util.*;
 
 public class WeightedGraph implements WeightedGraphInterface {
 
-    private int[][] matrix; // Adjacency Matrix
+    private double[][] matrix; // Adjacency Matrix
     private int numVertices;
     // private boolean directed; // Boolean to determine if graph is directed or undirected (not implemented)
-    private static final int INF = Integer.MAX_VALUE;
+    private static final double INF = Integer.MAX_VALUE;
 
     public WeightedGraph(int numVertices) {
         this.numVertices = numVertices;
         // this.directed = directed;
-        this.matrix = new int[numVertices][numVertices];
+        this.matrix = new double[numVertices][numVertices];
 
         // Initalize all weight 
         for (int i = 0; i < numVertices; i++) {
@@ -26,9 +26,15 @@ public class WeightedGraph implements WeightedGraphInterface {
     }
 
     @Override
-    public void addEdge(int v1, int v2, int weight) {
+    public void addEdge(int v1, int v2, double weight) {
         this.matrix[v1][v2] = weight;
         this.matrix[v2][v1] = weight; // assuming undirected
+    }
+        
+    @Override
+    public void addEdge(int v1, int v2) {
+        // Default weight if not specified
+        addEdge(v1, v2, 1.0);
     }
 
 
@@ -71,21 +77,27 @@ public class WeightedGraph implements WeightedGraphInterface {
     // Prints the graph in matrix form
     @Override
     public void printGraph() {
-        for (int i = 0; i < this.numVertices; i++) {
-            System.out.print(i + ": ");
-            for (int j = 0; j < this.numVertices; j++) {
-                if (this.matrix[i][j] == WeightedGraph.INF) {
-                    System.out.print("∞ ");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < numVertices; i++) {
+            sb.append(i).append(": ");
+            for (int j = 0; j < numVertices; j++) {
+                if (matrix[i][j] == INF) {
+                    sb.append("∞");
                 } else {
-                    System.out.print(this.matrix[i][j] + " ");
+                    sb.append(matrix[i][j]);
+                }
+                if (j < numVertices - 1) {
+                    sb.append(" ");
                 }
             }
-            System.out.println();
+            sb.append("\n");
         }
+        System.out.println(sb.toString());
     }
+    
 
     @Override
-    public int getEdgeWeight(int v1, int v2) {
+    public double getEdgeWeight(int v1, int v2) {
         if (this.matrix[v1][v2] == WeightedGraph.INF) {
             return -1;
         }
@@ -100,7 +112,7 @@ public class WeightedGraph implements WeightedGraphInterface {
         int[] prev = new int[this.numVertices];         // To reconstruct the shortest path
         boolean[] visited = new boolean[this.numVertices]; // Marks visited vertices
 
-        Arrays.fill(dist, INF);     // Initialize distances as infinite
+        Arrays.fill(dist, (int) INF);     // Initialize distances as infinite
         Arrays.fill(prev, -1);      // No predecessors initially
         dist[startVertex] = 0;      // Distance to start is 0
 
@@ -147,7 +159,7 @@ public class WeightedGraph implements WeightedGraphInterface {
         for (int v = 0; v < this.numVertices; v++) {
             // Edge must exist and neighbor must be unvisited
             if (matrix[u][v] != WeightedGraph.INF && !visited[v]) {
-                int newDist = dist[u] + this.matrix[u][v]; // Potential new shorter path
+                int newDist = (int) (dist[u] + this.matrix[u][v]); // Potential new shorter path
                 if (newDist < dist[v]) {
                     dist[v] = newDist; // Update distance
                     prev[v] = u;       // Update path
@@ -176,5 +188,7 @@ public class WeightedGraph implements WeightedGraphInterface {
         graph.printGraph(); // Show the adjacency matrix
         System.out.println(graph.shortestPath(0, 4)); // Show shortest path from 0 to 4
     }
+
+    
 
 }
