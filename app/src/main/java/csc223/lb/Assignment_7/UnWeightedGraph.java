@@ -12,7 +12,7 @@ public class UnWeightedGraph {
     }
 
     public void addEdge(int v1, int v2) {
-        if ( v1 > 0 && v1 <= vertices && v2 > 0 && v2 <= vertices ){
+        if (v1 >= 0 && v1 < vertices && v2 >= 0 && v2 < vertices){
             adjacencyMatrix[v1][v2] = 1;
             adjacencyMatrix[v2][v1] = 1;
         }else {
@@ -22,7 +22,7 @@ public class UnWeightedGraph {
     }
 
     public void removeEdge(int v1, int v2) {
-        if ( v1 > 0 && v1 <= vertices && v2 > 0 && v2 <= vertices ){
+        if (v1 >= 0 && v1 < vertices && v2 >= 0 && v2 < vertices){
             adjacencyMatrix[v1][v2] = 0;
             adjacencyMatrix[v2][v1] = 0;
         }else{
@@ -31,11 +31,18 @@ public class UnWeightedGraph {
     }
 
     public boolean hasEdge(int v1, int v2) {
-        return adjacencyMatrix[v1][v2] == 1;
-
+        if (v1 >= 0 && v1 < vertices && v2 >= 0 && v2 < vertices) {
+            return adjacencyMatrix[v1][v2] == 1;
+        }
+        return false;
     }
+    
 
     public int[] getNeighbors(int vertex) {
+        if (vertex < 0 || vertex >= vertices) {
+            return new int[0]; 
+        }
+    
         List<Integer> neighbors = new ArrayList<>();
         for (int i = 0; i < vertices; i++) {
             if (adjacencyMatrix[vertex][i] == 1) {
@@ -48,6 +55,7 @@ public class UnWeightedGraph {
         }
         return neighborsInt;
     }
+    
 
     public int getNumVertices() {
         return vertices;
