@@ -4,7 +4,7 @@ import java.util.*;
 
 public class WeightedGraph implements WeightedGraphInterface {
 
-    private double[][] matrix; // Adjacency Matrix
+    private int[][] matrix; 
     private int numVertices;
     // private boolean directed; // Boolean to determine if graph is directed or undirected (not implemented)
     private static final double INF = Integer.MAX_VALUE;
@@ -26,15 +26,15 @@ public class WeightedGraph implements WeightedGraphInterface {
     }
 
     @Override
+    public void addEdge(int v1, int v2) {
+        addEdge(v1, v2, 1); 
+    }
+    
+
+    @Override
     public void addEdge(int v1, int v2, double weight) {
         this.matrix[v1][v2] = weight;
         this.matrix[v2][v1] = weight; // assuming undirected
-    }
-        
-    @Override
-    public void addEdge(int v1, int v2) {
-        // Default weight if not specified
-        addEdge(v1, v2, 1.0);
     }
 
 
