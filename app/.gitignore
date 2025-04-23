@@ -1,0 +1,17 @@
+# Ignore specific file types 
+*.xml
+*.html
+*.class
+*.lock
+*.bin
+*.ser
+*.probe
+*.css
+*.gradle
+*.css
+*.bat
+*.js
+*.properties
+*.toml
+*.json
+
