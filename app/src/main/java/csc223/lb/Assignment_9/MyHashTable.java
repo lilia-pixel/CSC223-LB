@@ -45,4 +45,35 @@ public class MyHashTable {
         }return null;
 
     }
+
+    public void remove(String key) {
+        // Calculate the index
+        int index = Math.abs(key.hashCode()) % capacity;
+        // Get the list of items stored at the address
+        ArrayList<Tuple> items = this.arr[index];
+        // Find the key
+        index = 0;
+        while (items.get(index).key != key) {
+            index += 1;
+        }
+        items.remove(index);
+    }
+    
+    public boolean containsKey(String key) {
+        // Calculate the index
+        int index = Math.abs(key.hashCode()) % capacity;
+        // Get the list of items stored at the address
+        ArrayList<Tuple> items = this.arr[index];
+        // Find the key
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).key == key) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int size() {
+        return this.size;
+    }
 }
