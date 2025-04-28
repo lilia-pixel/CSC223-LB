@@ -1,4 +1,4 @@
-package csc223.lb.Assignment_9Test;
+package csc223.lb;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,11 +11,12 @@ public class MyHashTableTest {
 
     @BeforeEach
     public void setUp() {
-        hashTable = new MyHashTable(100);
+        MyHashTable hashTable = new MyHashTable(100);
     }
 
     @Test
     public void putTest() {
+        MyHashTable hashTable = new MyHashTable(100);
         hashTable.put("Emily", 0);
         assertEquals(1, hashTable.size());
         hashTable.put("Lilia", 1);
@@ -33,6 +34,7 @@ public class MyHashTableTest {
 
     @Test
     public void getTest() {
+        MyHashTable hashTable = new MyHashTable(100);
         hashTable.put("Andrew", 10);
         hashTable.put("Lilia", 20);
 
@@ -43,6 +45,7 @@ public class MyHashTableTest {
 
     @Test
     public void removeTest() {
+        MyHashTable hashTable = new MyHashTable(100);
         hashTable.put("Emily", 10);
         hashTable.put("Lilia", 20);
         assertEquals(2, hashTable.size());
@@ -57,6 +60,7 @@ public class MyHashTableTest {
 
     @Test
     public void containsKeyTest() {
+        MyHashTable hashTable = new MyHashTable(100);
         hashTable.put("Andrew", 10);
         hashTable.put("Lilia", 20);
 
@@ -67,6 +71,7 @@ public class MyHashTableTest {
 
     @Test
     public void sizeTest() {
+        MyHashTable hashTable = new MyHashTable(100);
         assertEquals(0, hashTable.size());
 
         hashTable.put("Andrew", 10);
