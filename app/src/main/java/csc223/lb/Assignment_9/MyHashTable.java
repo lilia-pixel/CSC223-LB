@@ -67,6 +67,9 @@ public class MyHashTable {
         public boolean containsKey(String key) {
             // Calculate the index
             int index = Math.abs(key.hashCode()) % capacity;
+            if (this.arr[index]== null){
+                return false;
+            }
             // Get the list of items stored at the address
             ArrayList<Tuple> items = this.arr[index];
             // Find the key

@@ -9,10 +9,6 @@ public class MyHashTableTest {
 
     private MyHashTable hashTable;
 
-    @BeforeEach
-    public void setUp() {
-        MyHashTable hashTable = new MyHashTable(100);
-    }
 
     @Test
     public void putTest() {
